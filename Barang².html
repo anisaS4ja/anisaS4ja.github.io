@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilih Barang</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background: linear-gradient(120deg, black, black);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 150vh;
+        }
+        .container {
+            max-width: 600px;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            position: relative;
+        }
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(253, 160, 133, 0.3);
+            border-radius: 50%;
+            z-index: -1;
+        }
+        .container h2 {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #444;
+            border-bottom: 2px solid #fda085;
+            padding-bottom: 10px;
+        }
+        select, input[type="range"] {
+            width: 100%;
+            padding: 12px;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        select:hover, input[type="range"]:hover {
+            border-color: #fda085;
+            box-shadow: 0 0 8px rgba(253, 160, 133, 0.5);
+        }
+        .product {
+            text-align: center;
+        }
+        .product img {
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+        }
+        .product img:hover {
+            transform: scale(1.05);
+        }
+        .product p {
+            font-size: 16px;
+            margin-top: 10px;
+            color: #666;
+        }
+        .slider-container label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #444;
+            font-weight: 500;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Pilih Barang</h2>
+        <form>
+            <label for="barang">Daftar Barang:</label>
+            <select id="barang" name="barang" onchange="updateProductInfo()">
+                <option value="barang1" data-desc="Spanduk berfungsi sebagai media komunikasi visual yang efektif untuk menyampaikan informasi, promosi, atau pesan tertentu kepada khalayak luas. Dengan desain yang menarik dan mudah dilihat, spanduk sering digunakan dalam berbagai kegiatan, seperti mempromosikan produk, memberikan informasi acara, atau menyampaikan pesan kampanye sosial. Selain itu, spanduk juga dapat berfungsi sebagai elemen dekoratif yang memperkuat identitas sebuah acara atau organisasi. Karena ukurannya yang besar dan lokasinya yang strategis, spanduk mampu menjangkau audiens secara langsung dan memberikan dampak visual yang kuat.
+
+" data-img="duk.jpg">Barang 1 - Contoh Spanduk</option>
+                <option value="barang2" data-desc="Neon box adalah media promosi atau reklame berbentuk kotak yang dilengkapi dengan pencahayaan internal menggunakan lampu neon atau LED. Fungsi utamanya adalah untuk menarik perhatian, terutama pada malam hari, karena cahaya yang dihasilkan membuatnya terlihat mencolok dan mudah dikenali dari jarak jauh. Neon box biasanya digunakan oleh bisnis untuk menampilkan logo, nama merek, atau informasi penting lainnya, sehingga meningkatkan visibilitas dan daya tarik pelanggan. Selain sebagai alat promosi, neon box juga dapat memberikan kesan profesional dan modern pada identitas bisnis atau tempat usaha.
+
+" data-img="bran.jpg">Barang 2 - Contoh Neon Box</option>
+                <option value="barang3" data-desc="Stiker adalah media cetak berperekat yang berfungsi untuk berbagai keperluan, baik sebagai alat promosi, dekorasi, maupun identifikasi. Dalam dunia bisnis, stiker sering digunakan untuk branding, seperti mencantumkan logo, nama perusahaan, atau informasi produk pada kemasan, sehingga meningkatkan kesan profesional dan mempermudah pengenalan merek. Selain itu, stiker juga berfungsi sebagai alat komunikasi visual yang praktis, digunakan dalam kampanye, label produk, atau peringatan tertentu. Dalam konteks personal, stiker dapat digunakan untuk mengekspresikan kreativitas, menghias benda pribadi, atau menyampaikan pesan tertentu. Fleksibilitas dan kepraktisannya menjadikan stiker sebagai alat yang serbaguna untuk berbagai kebutuhan." data-img="cal.jpg">Barang 3 - Contoh Stiker</option>
+                <option value="barang4" data-desc="Fungsi surat undangan adalah untuk menyampaikan ajakan atau pemberitahuan resmi kepada seseorang atau sekelompok orang agar menghadiri suatu acara atau kegiatan. Surat ini berfungsi sebagai media komunikasi formal yang memberikan informasi tentang waktu, tempat, dan tujuan acara tersebut.
+
+" data-img="dang.jpg">Barang 4 - surat Undangan</option>
+                <option value="barang5" data-desc="Fungsi gantungan kunci (ganci) adalah sebagai alat untuk menyatukan kunci agar mudah dibawa dan tidak mudah hilang. Selain itu, ganci juga berfungsi sebagai aksesori atau hiasan yang dapat mencerminkan kepribadian pemiliknya.
+
+" data-img="ganci.jpg">Barang 5 - Contoh Ganci
+                </option>
+                <option value="barang6" data-desc="Fungsi X-Banner adalah sebagai media promosi atau informasi yang efektif untuk menyampaikan pesan, iklan, atau branding. Bentuknya yang ringan dan mudah dipasang membuatnya ideal untuk digunakan pada acara, pameran, atau di tempat usaha.
+
+" data-img="ner.jpg">Barang 6 - Contoh X banner
+                </option>
+                <option value="barang7" data-desc="Fungsi ID card adalah sebagai identitas resmi untuk mengenali seseorang, baik dalam lingkungan kerja, acara, maupun organisasi. ID card juga berfungsi sebagai alat pengaman, mempermudah akses ke area tertentu, dan meningkatkan profesionalisme.
+
+" data-img="id.jpg">Barang 7 - Contoh Id Card
+                </option>
+                  <option value="barang8" data-desc="Nota custom berfungsi sebagai bukti transaksi yang dirancang sesuai kebutuhan dan identitas sebuah bisnis. Dengan desain yang unik dan mencerminkan brand, nota ini tidak hanya membantu mencatat detail transaksi seperti jumlah barang, harga, dan total pembayaran, tetapi juga memperkuat citra profesional perusahaan. Selain itu, nota custom mempermudah pelanggan dalam mengarsipkan dan memahami rincian pembelian, sehingga meningkatkan kepercayaan dan kepuasan terhadap layanan bisnis.
+
+" data-img="nota.jpg">Barang 8 - Contoh Nota Costum
+                </option>
+                 <option value="barang9" data-desc="Fungsi cutting sticker adalah sebagai media promosi atau dekorasi yang dapat dipasang pada berbagai permukaan, seperti kendaraan, produk, jendela, atau dinding. Dengan desain yang dipotong sesuai bentuk, cutting sticker menawarkan fleksibilitas untuk menampilkan logo, pesan, atau gambar secara kreatif. Selain itu, cutting sticker juga berfungsi untuk meningkatkan visibilitas brand, memberikan sentuhan personal pada suatu objek, dan memberikan informasi atau peringatan dengan cara yang menarik dan mudah dikenali.
+
+" data-img="nus.jpg">Barang 9 - Contoh Cutting Stiker
+                </option>
+                <option value="barang10" data-desc="Fungsi buku Yasin adalah sebagai sarana untuk mempermudah umat Muslim dalam membaca surah Yasin, yang dianggap sebagai salah satu surah yang penting dan penuh berkah dalam Al-Qur'an. Buku Yasin sering digunakan dalam berbagai acara keagamaan, seperti tahlilan, doa untuk orang yang telah meninggal, atau sebagai bentuk ibadah pribadi. Selain itu, buku Yasin juga berfungsi sebagai panduan bagi orang yang ingin menghafal atau mempelajari surah ini lebih mendalam, serta memberikan kenyamanan dalam membaca karena dilengkapi dengan tulisan yang jelas dan mudah dipahami.
+
+" data-img="sin.jpg">Barang 10 - Contoh Yasin
+                </option>
+                 <option value="barang11" data-desc="Fungsi RollBanner adalah sebagai media promosi yang praktis dan efektif untuk menampilkan informasi, iklan, atau pesan tertentu dalam acara, pameran, atau di tempat umum. RollBanner memiliki desain yang dapat digulung dan dipasang dengan mudah, sehingga sangat fleksibel dan mudah dibawa ke berbagai lokasi. Selain itu, RollBanner berfungsi untuk menarik perhatian pengunjung atau calon pelanggan dengan visual yang menarik, serta memberikan ruang untuk menampilkan logo, gambar, atau informasi penting secara jelas dan profesional. Keunggulannya adalah kemudahan dalam penyimpanan dan penggunaan, membuatnya menjadi pilihan populer dalam kegiatan pemasaran.
+
+" data-img="roll.jpg">Barang 11 - RollBaner
+                </option>
+                <option value="barang12" data-desc="Fungsi decal motor adalah untuk memberikan sentuhan estetika dan personalisasi pada sepeda motor, dengan menambahkan desain, gambar, atau logo yang mencerminkan identitas pemilik atau merek motor tersebut. Decal motor juga berfungsi sebagai pelindung bagian tertentu dari motor, seperti cat bodi, dari goresan atau kerusakan ringan akibat gesekan. Selain itu, decal motor dapat meningkatkan visibilitas kendaraan, mempromosikan suatu merek, atau sekadar memberikan tampilan yang lebih menarik dan unik sesuai selera pemiliknya.
+
+" data-img="decall.jpeg">Barang 12  - Contoh Decal motor
+                </option>
+                 <option value="barang13" data-desc="Fungsi plakat mug adalah untuk memberikan penghargaan atau kenang-kenangan yang dapat dipersonalisasi dengan desain, nama, atau pesan tertentu. Plakat mug sering digunakan sebagai hadiah atau tanda terima kasih dalam berbagai acara seperti seminar, lomba, atau perayaan khusus. Selain sebagai media penghargaan, plakat mug juga berfungsi sebagai dekorasi atau alat promosi, karena desain yang unik dan menarik bisa meningkatkan citra suatu organisasi atau acara. Dengan fungsinya yang ganda, plakat mug tidak hanya memberikan kesan yang mendalam, tetapi juga bisa digunakan sehari-hari." data-img="las.jpg">Barang 13  - Contoh Plakat Mug
+                </option>
+                 <option value="barang13" data-desc="Fungsi stempel adalah sebagai alat identifikasi resmi yang digunakan untuk memberikan tanda atau pengesahan pada dokumen. Stempel biasanya mencantumkan informasi seperti nama, logo, atau identitas perusahaan, sehingga membantu memperkuat keaslian dan validitas dokumen. Selain itu, stempel juga berfungsi untuk efisiensi administrasi karena mempermudah proses penandaan dokumen dalam jumlah banyak. Stempel sering digunakan di lingkungan bisnis, pemerintahan, atau organisasi, baik untuk keperluan formal maupun informal, dan menjadi simbol kredibilitas serta profesionalisme.
+
+" data-img="pel.png">Barang 14 - Contoh Stempel 
+<option value="barang13" data-desc="Kotak saran adalah alat atau media yang digunakan untuk mengumpulkan masukan, ide, atau kritik dari individu, seperti karyawan, pelanggan, atau masyarakat umum. Fungsinya adalah sebagai sarana komunikasi dua arah yang memungkinkan pihak tertentu, seperti perusahaan, sekolah, atau organisasi, untuk mengetahui kebutuhan, keinginan, atau keluhan dari para pengguna layanan atau anggotanya. Dengan kotak saran, pihak pengelola dapat mengidentifikasi masalah, mengevaluasi kinerja, dan mengambil langkah-langkah perbaikan atau inovasi berdasarkan masukan yang diterima. Selain itu, kotak saran juga berfungsi membangun rasa keterlibatan dan memberikan kesempatan kepada setiap orang untuk menyampaikan pendapat mereka secara bebas dan anonim." data-img="ran.jpg">Barang 15 - Contoh kotak saran
+<option value="barang13" data-desc="Softcover adalah jenis sampul buku yang terbuat dari bahan yang fleksibel, seperti kertas karton atau kertas tebal, yang berfungsi untuk melindungi isi buku sekaligus memberikan tampilan estetis. Fungsi utamanya adalah menjaga buku agar tetap rapi, melindungi halaman dari kerusakan seperti lipatan, sobekan, atau noda, serta memudahkan penyimpanan karena sifatnya yang ringan dan tidak kaku. Softcover sering digunakan untuk buku-buku yang lebih ringan atau lebih sering digunakan, seperti novel, komik, majalah, atau buku pelajaran. Selain itu, softcover juga memberikan kelebihan dalam hal biaya produksi yang lebih rendah dibandingkan hardcover, sehingga cocok untuk cetakan dalam jumlah besar atau dengan anggaran terbatas.
+
+" data-img="bn.png">Barang 16- Contoh softcrover
+<option value="barang13" data-desc="Hardcover adalah jenis sampul buku yang terbuat dari bahan keras, seperti karton tebal yang dilapisi kain, kulit sintetis, atau kertas laminasi, yang berfungsi untuk memberikan perlindungan maksimal pada isi buku sekaligus meningkatkan daya tahan dan kesan mewah. Fungsi utamanya adalah menjaga buku agar lebih awet, tahan terhadap kerusakan fisik seperti lipatan atau sobekan, dan tetap terjaga kualitasnya meskipun digunakan dalam jangka waktu lama. Hardcover biasanya digunakan untuk buku-buku penting atau berharga, seperti ensiklopedia, album foto, novel koleksi, atau buku referensi. Selain itu, hardcover memberikan nilai estetika lebih tinggi, menjadikannya pilihan ideal untuk hadiah, koleksi, atau publikasi resmi.
+
+" data-img="har.jpg">Barang 17- Contoh Hardcover
+</select>
+            <div class="product">
+                <img id="productImage" src="duk.jpg" alt="Produk" style="width: 100%;">
+                <p id="productDescription">Sepatu nyaman untuk olahraga.</p>
+            </div>
+            <div class="slider-container">
+                <label for="imageSize">Atur Ukuran Gambar:</label>
+                <input id="imageSize" type="range" min="50" max="300" value="300" oninput="updateImageSize()">
+            </div>
+        </form>
+        <footer>&copy; 2024 Pilih Barang | Mewah & Elegan</footer>
+    </div>
+
+    <script>
+        function updateProductInfo() {
+            const select = document.getElementById('barang');
+            const selectedOption = select.options[select.selectedIndex];
+            const description = selectedOption.getAttribute('data-desc');
+            const image = selectedOption.getAttribute('data-img');
+
+            document.getElementById('productImage').src = image;
+            document.getElementById('productDescription').textContent = description;
+        }
+
+        function updateImageSize() {
+            const size = document.getElementById('imageSize').value;
+            document.getElementById('productImage').style.width = size + "px";
+        }
+    </script>
+</body>
+</html>
